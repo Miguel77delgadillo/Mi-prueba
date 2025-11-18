@@ -1,0 +1,10 @@
+# Dockerfile: sirve archivos estáticos con Nginx
+FROM nginx:stable-alpine
+
+# Elimina contenido por defecto (opcional) y copia tu sitio al directorio de Nginx
+RUN rm -rf /usr/share/nginx/html/*
+COPY . /usr/share/nginx/html
+
+EXPOSE 80
+
+# Nginx ya tiene ENTRYPOINT/CMD; no es necesario sobrescribirlo.
